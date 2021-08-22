@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -13,39 +13,56 @@
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="1005707444829-gfaus9ehmi9dg6m7f237c2g7ufrn10k6.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
   <style>
-    html, body{
-      height: 100%;
-    }
+body{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: greenyellow;
+}
+.box{
+  width: 300px;
+  padding: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: honeydew;
+  text-align: center;
+}
+.box h1{
+  color: black;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.isValid {
+            background-color: lightgreen;
+            border-color: green;
+            border-width: thick;
+        }
+        .isInvalid {
+            background-color: pink;
+            border-color: red;
+            border-width: thick;
+        }
 
-    body {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-align: center;
-      align-items: center;
-      padding-top: 40px;
-      padding-bottom: 40px;
-      background-color: #f5f5f5;
-    }
-
-    .signin {
-      width: 100%;
-      max-width: 330px;
-      padding: 15px;
-      margin: auto;
-    }
   </style>
 </head>
+<body>
+  <div class="box" action="index.html" method="post">
+    <h1>Login</h1>
+    <input type="text" id="user" name="" placeholder="Usuario">
+    <input type="password" id="pass" name="" placeholder="Contraseña">
+    <br>
+    <span id="msj"></span>
 
-<body class="text-center">
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 1 (Fecha de entrega: 08/08/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
+    <button class="btn btn-primary" id="conectar" onclick="verificar();" >Iniciar Sesión</button> <br> <br>
+    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
   </div>
+
 
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>
