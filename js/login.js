@@ -11,7 +11,11 @@ function onSignIn(googleUser) {
     // The ID token you need to pass to your backend:
     var id_token = googleUser.getAuthResponse().id_token;
     console.log("ID Token: " + id_token);
-    
+    let usuario={};
+    usuario.nombre=profile.getName();
+    usuario.estado="Conectado"
+    usuario.avatar=profile.getImageUrl();
+
     alert ("Conectado")
   }
 
@@ -19,7 +23,7 @@ function verificar(){
     let user = document.getElementById('user')
     let password = document.getElementById('pass')
     let msj = document.getElementById('msj')
-    let users = {}
+    let users = {};
     
     if(user.value.trim() === '' || password.value.trim() === ''){
         //Valido - Invalido
@@ -34,10 +38,12 @@ function verificar(){
         location.href ='index.html';
     
         users.nombre = user.value;
+        users.images="img/userIcon.png"
         users.estado = "conectado";
     
         localStorage.setItem('users', JSON.stringify(users));
         sessionStorage.setItem('users', JSON.stringify(users));
+       
     }
     
     }   
