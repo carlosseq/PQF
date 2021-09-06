@@ -58,9 +58,9 @@ function sortCategories(criteria, array) {
 
   return result;
 }
-function showProductsList() {
+function showProductsList(array) {
   let htmlContentToAppend = "";
-  for (product of productsArray) {
+  for (product of array) {
     if (
       (minCount == undefined ||
         (minCount != undefined && parseInt(product.cost) >= minCount)) &&
@@ -108,6 +108,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
       showProductsList(productsArray);
     }
   });
+  
 });
 
 
@@ -130,7 +131,7 @@ document.getElementById("limpiar").addEventListener("click", function () {
   minCount = undefined;
   maxCount = undefined;
 
-  showProductsList();
+  showProductsList(productsArray);
 });
 document.getElementById("fil").addEventListener("click", function () {
   //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
@@ -150,5 +151,22 @@ document.getElementById("fil").addEventListener("click", function () {
     maxCount = undefined;
   }
 
-  showProductsList();
+  showProductsList(productsArray);
+});
+
+
+
+
+function buscar(){
+    let peticion = document.getElementById("encontrar").value;
+    let buscados = productsArray.filter(  product =>  {
+      return product.name.toLowerCase().indexOf(peticion.toLowerCase())> -1;
+    })
+
+    showProductsList(buscados);
+    
+
+}
+document.getElementById("encontrar").addEventListener('keyup',()=>{
+  buscar();
 });
