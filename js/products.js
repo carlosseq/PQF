@@ -170,3 +170,7 @@ function buscar(){
 document.getElementById("encontrar").addEventListener('keyup',()=>{
   buscar();
 });
+document.getElementById("Productos").addEventListener("click", () => {
+  location.href= "product-info.html"
+  alert("Direccionando")
+});

@@ -124,8 +124,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                       <h4>${coment.user}</h4>
                       <div id="puntuacion" style="margin-bottom: 5px"> ${mostrarEstrellas(
                         puntos
-                      )}
-                      </div>
+                      )}</div>
                       <p class="">${coment.description}</p>
                       <small class="text">${coment.dateTime}</small>
                   </div>
@@ -136,7 +135,24 @@ document.addEventListener("DOMContentLoaded", function(e){
       
     
       
-      
+      function comentar() {
+      coment = document.getElementById("poner-comentario").value;
+        confirmacion = "";}
+        for (let i = 1; i < 6; i++) {}
+          if (document.getElementById(i).checked) {
+            puntuacion = document.getElementById(i).value;
+          }
+
+          comentarios.push({
+            score: puntuacion,
+            description: coment,
+            user: nombre,
+            dateTime: fechaActual,
+          });
+        
+          console.log(comentarios)
+          mostrarComentarios(comentarios);
+              
 
       function mostrarEstrellas(puntos) {
         let estrellas = "";
@@ -149,7 +165,3 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
         return estrellas;
       }
-        
-
-      
-     
