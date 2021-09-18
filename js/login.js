@@ -15,8 +15,8 @@ function onSignIn(googleUser) {
     usuario.nombre=profile.getName();
     usuario.estado="Conectado"
     usuario.avatar=profile.getImageUrl();
-
-    alert ("Conectado")
+    
+   alert("conectado")
   }
 
 function verificar(){

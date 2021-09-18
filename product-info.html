@@ -2,37 +2,98 @@
 <!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
 <html lang="en">
 
-<head>
+  <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <title>eMercado - Todo lo que busques está aquí</title>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
-</head>
+  </head>
 
-<body>
+  <body>
   <nav class="site-header sticky-top py-1 bg-dark">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio<i class="fas fa-tv"></i></a>
+      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías<i class="fas fa-clipboard-list"></i></a>
+      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos<i class="fas fa-cubes"></i></a>
+      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender<i class="far fa-money-bill-alt"></i></a>
+      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito<i class="fas fa-dolly"></i></a>
+      <a id="usuario" style="color: whitesmoke" class="py-2 d-none d-md-inline-block"></a>
+        <img
+        src="/img/userIcon.png"
+        style="width: 40px; border-radius: 50%; padding-left: 10px;"
+        />
+      </div>
     </div>
+
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 19/09/2021) y Entrega 4 (Fecha de entrega: 03/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
+
+  <div class="container p-5"></div>
+
+  <div id="Productos" class="container" style="position: relative; width:auto; top: 0;">      
   </div>
+  
+  <br>
+  
+  <div id="galeria" class="container" style="position: relative; width:auto; top: 0;">      
+  </div>
+
+  <div class="container">
+    <hr><br>
+    <h1 class="row justify-content-center" style="margin-bottom: 10px;"> Veamos algunos comentarios!! </h1>
+
+  <div id="comentarios" class="container" style="position: left; width:auto; top: 0;">        
+  </div>
+
+</div>
+<hr><br>
+
+
+  <div class="row justify-content-center">
+    <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_j1yzugut.json"  background="transparent"  speed="1"  style="width: 150px; height: 150px;" hover loop  autoplay></lottie-player>
+  </div> 
+
+<hr style="width: 600px;">
+<div class="row justify-content-center">
+  <h1 class="row justify-content-center"> !Escribe tu comentario! </h1>
+</div>
+<div>
+  <p class="clasificacion">
+    <input id="radio1" type="radio" name="estrellas" value="5"><!--
+    --><label for="radio1"><i class="fas fa-battery-empty"></i></label><!--
+    --><input id="radio2" type="radio" name="estrellas" value="4"><!--
+    --><label for="radio2"><i class="fas fa-battery-empty"></i></label><!--
+    --><input id="radio3" type="radio" name="estrellas" value="3"><!--
+    --><label for="radio3"><i class="fas fa-battery-empty"></i></label><!--
+    --><input id="radio4" type="radio" name="estrellas" value="2"><!--
+    --><label for="radio4"><i class="fas fa-battery-empty"></i></label><!--
+    --><input id="radio5" type="radio" name="estrellas" value="1"><!--
+    --><label for="radio5"><i class="fas fa-battery-empty"></i></label>
+  </p>
+</div>
+  
+      <div class="row justify-content-center">
+          
+        <div class="row justify-content-center">
+          <textarea id="poner-comentarios" class="justify-content-center" style="width: 900px;" placeholder="    Deje aqui su comentario..." ></textarea>
+          <br>
+        </div> 
+        
+        <div  class="row justify-content-between">        
+          <button class="btn btn-dark btn-lg" style="width: 900px; margin-top: 20px;" onclick="comentar();"><i class="far fa-comment-dots" style="margin-right: 30px;"></i>Comentar</button>        
+        </div>
+
+      </div>
+    </div>
+    <div class="row justify-content-center" style="width:900; margin-bottom: 30px;">
+ 
+  
   <footer class="text-muted">
     <div class="container">
       <p class="float-right">
@@ -54,6 +115,7 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
+  <script src="js/Usuario.js"></script>
 </body>
 
 </html>
