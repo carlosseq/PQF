@@ -7,9 +7,11 @@ let comentarios = "";
 let mostrar = "";
 let nuevoComentario = "";
 let puntuacion = "";
-let usuario = JSON.parse(localStorage.getItem("usuario"));
-let nombre = usuario;
-
+let hoy = new Date();
+let fechaActual = (hoy.getFullYear()+"-"+(hoy.getMonth()+1)+"-"+hoy.getDay()+" "+hoy.getHours()+":"+hoy.getMinutes()+":"+hoy.getSeconds());
+let usuario = JSON.parse(localStorage.getItem("users"));
+let nombre = usuario.nombre;
+let coment= "";
 
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCTS_URL).then(function (resultObj) {
@@ -31,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function(e){
           mostrarGaleria(Productos);
         }
       });
+      console.log(fechaActual)
 });
 
 
@@ -132,36 +135,29 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
         document.getElementById("comentarios").innerHTML = mostrar;
       }
-      
-    
-      
-      function comentar() {
-      coment = document.getElementById("poner-comentario").value;
-        confirmacion = "";}
-        for (let i = 1; i < 6; i++) {}
-          if (document.getElementById(i).checked) {
-            puntuacion = document.getElementById(i).value;
-          }
 
-          comentarios.push({
-            score: puntuacion,
-            description: coment,
-            user: nombre,
-            dateTime: fechaActual,
-          });
-        
-          console.log(comentarios)
-          mostrarComentarios(comentarios);
-              
 
       function mostrarEstrellas(puntos) {
         let estrellas = "";
         for (let i = 1; i < 6; i++) {
           if (i <= puntos) {
-            estrellas += `<i class="fas fa-battery-full"style='color:orange'>`;
+            estrellas += `<i class="fas fa-battery-full"style='color:orange'></i>`;
           } else {
-            estrellas += `<i class="fas fa-battery-empty"style='color:grey'>`;
+            estrellas += `<i class="fas fa-battery-empty"style='color:grey'></i>`;
           }
         }
         return estrellas;
       }
+
+      function comentar() {
+       let nuevoComentario = document.getElementById("poner-comentarios").value;
+          for (let i = 1; i <= 5; i++) {
+            if (document.getElementById(i).checked) {
+              puntuacion = document.getElementById(i).value;
+            }
+          }
+          comentarios.push({score:parseInt(puntuacion),description:nuevoComentario,usuario:nombre,dateTime:fechaActual});
+      
+          console.log(comentarios)
+          mostrarComentarios(comentarios);
+        }
