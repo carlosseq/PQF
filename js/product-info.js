@@ -119,6 +119,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     }
 
     function mostrarComentarios(comentarios) {
+      let mostrar = "";
         for (coment of comentarios) {
           puntos = parseInt(coment.score);
           mostrar += `
@@ -156,7 +157,7 @@ document.addEventListener("DOMContentLoaded", function(e){
               puntuacion = document.getElementById(i).value;
             }
           }
-          comentarios.push({score:parseInt(puntuacion),description:nuevoComentario,usuario:nombre,dateTime:fechaActual});
+          comentarios.push({score:parseInt(puntuacion),description:nuevoComentario,user:nombre,dateTime:fechaActual});
       
           console.log(comentarios)
           mostrarComentarios(comentarios);
