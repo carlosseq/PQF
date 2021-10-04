@@ -22,12 +22,21 @@
         <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías<i class="fas fa-clipboard-list"></i></a>
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos<i class="fas fa-cubes"></i></a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender<i class="far fa-money-bill-alt"></i></a>
-        <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito<i class="fas fa-dolly"></i></a>
-        <a id="usuario" style="color: whitesmoke" class="py-2 d-none d-md-inline-block"></a>
-        <img
+        <div class="dropdown">
+          <a class="btn btn-secondary dropdown-toggle" href="my-profile.html" role="button" id="usuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img
         src="/img/userIcon.png"
         style="width: 40px; border-radius: 50%; padding-left: 10px;"
         />
+          </a>
+        
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+            <a class="dropdown-item" href="cart.html">Mi carrito</a>
+            <a class="dropdown-item" onclick="desconectar();" >Cerrar Sesión</a>
+        
+          </div>
+        </div>
       </div>
     </nav>
     <main role="main">
@@ -108,7 +117,6 @@
         <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
         <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
       </div>
-      <button class="btn btn-danger" onclick="desconectar();">Desconectar</button>
     </footer>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>

@@ -1,11 +1,12 @@
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-let Productos = "";
-let productosArray = "";
+//let Productos = {};
+let productosArray = [];
 let comentarios = "";
 let mostrar = "";
 let nuevoComentario = "";
+let relacionados = ""; 
 let puntuacion = "";
 let hoy = new Date();
 let fechaActual = (hoy.getFullYear()+"-"+(hoy.getMonth()+1)+"-"+hoy.getDay()+" "+hoy.getHours()+":"+hoy.getMinutes()+":"+hoy.getSeconds());
@@ -17,6 +18,15 @@ document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCTS_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
           productosArray = resultObj.data;
+        }
+
+     
+      });
+
+      getJSONData(PRODUCTS_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+          productosArray = resultObj.data;
+          
         }
       });
       
@@ -30,7 +40,8 @@ document.addEventListener("DOMContentLoaded", function(e){
         if (resultObj.status === "ok") {
           Productos = resultObj.data;
           mostrarInfoProducto(Productos);
-          mostrarGaleria(Productos);
+          //mostrarGaleria(Productos);//
+          productosRelacionados(Productos.relatedProducts);
         }
       });
       console.log(fechaActual)
@@ -78,9 +89,9 @@ document.addEventListener("DOMContentLoaded", function(e){
     }
     
 
-    function mostrarGaleria(infoProducto) {
+    /*function mostrarGaleria(infoProducto) {
     
-        let galeria = {};
+        let galeria = "";
         galeria =`
         <div class="list-group-item list-group-item-action">
             <div class="card">
@@ -116,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     
         document.getElementById("galeria").innerHTML = galeria;
     
-    }
+    }*/
 
     function mostrarComentarios(comentarios) {
       let mostrar = "";
@@ -162,3 +173,27 @@ document.addEventListener("DOMContentLoaded", function(e){
           console.log(comentarios)
           mostrarComentarios(comentarios);
         }
+      
+
+        function productosRelacionados(array){
+          array.forEach(rel => {
+      
+            relacionados += `
+            
+              <a class="relacionados"><div  class="justify-content-center" style="width: 500px;">
+              
+                <div class="card justify-content-center" style="width: 500px;">
+                  <img src="${productosArray[rel].imgSrc}" style="width: 500px;">
+                </div>
+      
+                <div class="row justify-content-center" style="width: 500px; margin-top:15px">
+                  <h3 class="text-muted justify-content-center">${productosArray[rel].name}</h3>                
+                </div>
+      
+              </div></a>
+              <hr>
+              `;
+      
+          });
+          document.getElementById("productos-relacionados").innerHTML = relacionados;
+      }
