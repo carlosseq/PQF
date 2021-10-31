@@ -11,7 +11,7 @@ let puntuacion = "";
 let hoy = new Date();
 let fechaActual = (hoy.getFullYear()+"-"+(hoy.getMonth()+1)+"-"+hoy.getDay()+" "+hoy.getHours()+":"+hoy.getMinutes()+":"+hoy.getSeconds());
 let usuario = JSON.parse(localStorage.getItem("users"));
-let nombre = usuario.nombre;
+let nombre = usuario;
 let coment= "";
 
 document.addEventListener("DOMContentLoaded", function(e){

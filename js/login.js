@@ -58,4 +58,11 @@ function verificar(){
     
     });
 
-   
+    function desconectar(){ 
+
+        signOut(); 
+    
+        localStorage.clear(); 
+        location.href="index.html"; 
+        
+    }

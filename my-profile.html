@@ -40,17 +40,58 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      <div class="dropdown">
+        <a class="btn btn-secondary dropdown-toggle" href="my-profile.html" role="button" id="usuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img
+      src="/img/userIcon.png"
+      style="width: 40px; border-radius: 50%; padding-left: 10px;"
+      />
+        </a>
+      
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+          <a class="dropdown-item" href="cart.html">Mi carrito</a>
+          <a class="dropdown-item" onclick="desconectar();" >Cerrar Sesión</a>
+      
+        </div>
+      </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+              <img id="foto"class="rounded-circle mt-5" width="150px" src="https://i.ibb.co/7vmVgnr/avatar.jpg" alt="avatar">
+              <span id="nombrePerfil" class="text-black-50">Nombre</span>
+              <span id="apellidoPerfil" class="text-black-50">Apellido</span>
+              <span id="edadPerfil"   class="text-black-50">Edad</span>
+              <span id="emailPerfil"class="text-black-50">Email</span>
+              <span id="telefonoPerfil"class="text-black-50">Telefono</span>
+              <span> </span>
+            </div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Mi Perfil</h4>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6"><label  class="labels">Nombres</label><input id="editarNombres"  type="text" class="form-control" placeholder="Nombres" ></div>
+                    <div class="col-md-6"><label  class="labels">Apellidos</label><input id="editarApellidos" type="text" class="form-control"  placeholder="Apellidos"></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12"><label class="labels">Edad</label><input id="editarEdad" type="text" class="form-control" placeholder="edad" v></div>
+                    <div class="col-md-12"><label class="labels">Email</label><input id="editarEmail"type="email" class="form-control" placeholder="email" value=""></div>
+                    <div class="col-md-12"><label class="labels">Teléfono de contacto</label><input id="editarTelefono"type="text" class="form-control" placeholder="Teléfono de contacto" value=""></div>
+                    <div class="col-md-12"><label class="labels">Imagen de perfil</label><input onchange="previewFile()" id="editarImagenPerfil"type="file" class="form-control" placeholder="Imagen de perfil" value=""></div>
+                </div>
+           
+                <div class="mt-5 text-center">
+                  <button onclick="editarPerfil();" class="btn btn-secondary  profile-button" value="enviar datos" >Guardar cambios</button></div>
+            </div>
+        </div>
     </div>
-  </div>
+</div>
   <footer class="text-muted bg-light">
     <div class="container">
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
