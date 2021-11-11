@@ -4,12 +4,15 @@
 const CART_INFO2_URL ="https://japdevdep.github.io/ecommerce-api/cart/654.json"
 carrito = {};
 let subTotal_Final=0;
+
 document.addEventListener("DOMContentLoaded", function(e){ 
 
     getJSONData(CART_INFO2_URL).then(function(resultObj){
     if (resultObj.status = "ok") 
     { carrito = resultObj.data;
       mostrarCarrito(carrito);
+      methodPay();
+      removeProductCart(cart.articles);
     }
 })
 
@@ -113,3 +116,72 @@ function calSubtotal(indice,precio){
       document.getElementById("total-cost").innerText="USD "+ total_Final;
   }
   
+  function limpiarCarrito(articulos, posicion) {
+    localStorage.getItem("articulos");
+    articulos.splice(posicion, 1);
+    localStorage.setItem('articulos', JSON.stringify(articulos));
+    mostrarCarrito(articulos);
+}
+
+function methodPay() {
+  let method = document.getElementById("method");
+  htmlContentToAppend = "";
+  method.onchange = function(e) {
+      let selectMethod = e.target.value;
+      if (selectMethod == "method2") {
+          htmlContentToAppend = `
+          <div class="container">
+              <div class="alert alert-secondary text-center" role="alert" style="position: relative; width:auto; top: 0;">
+                  <p>Las compras realizadas con este método de pago quedan ajustadas a las condiciones del banco.</p>
+              </div>
+          </div>
+      `
+      } else {
+          htmlContentToAppend = `
+          <div class="form-group input-group-sm col-md-3">
+              <label><small>Número de la tarjeta:</small></label>
+              <input name="credit-number" class="form-control" type="tel" maxlength="19" placeholder="xxxx xxxx xxxx xxxx" required>
+          </div>
+          <div class="pl-5 col">
+              <label><small>Fecha de vencimiento y código de seguridad:</small></label>
+              <div class="form-row">
+              <div class="input-group-sm col-md-2">
+                  <select class="form-control" name="month" id="month">
+                  <option value="--">--</option>
+                  <option value="1">01</option>
+                  <option value="2">02</option>
+                  <option value="3">03</option>
+                  <option value="4">04</option>
+                  <option value="5">05</option>
+                  <option value="6">06</option>
+                  <option value="7">07</option>
+                  <option value="8">08</option>
+                  <option value="9">09</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  </select>
+              </div>
+              <div class="input-group-sm col-md-2">
+                  <select class="form-control" name="year" id="year">
+                  <option value="----">----</option>
+                  <option value="2020">2020</option>
+                  <option value="2021">2021</option>
+                  <option value="2022">2022</option>
+                  <option value="2023">2023</option>
+                  <option value="2024">2024</option>
+                  <option value="2025">2025</option>
+                  <option value="2026">2026</option>
+                  <option value="2027">2027</option>
+                  </select>
+              </div>
+              <div class="input-group-sm col-md-2">
+                  <input type="tel" inputmode="numeric" pattern="[0-9\s]{3,5}" class="form-control" id="securityCode" maxlength="4" required>
+              </div>
+              </div>
+          </div>
+      `
+      }
+      document.getElementById("methodPay").innerHTML = htmlContentToAppend;
+  }
+}
