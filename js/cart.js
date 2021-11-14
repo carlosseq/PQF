@@ -194,3 +194,51 @@ function methodPay() {
       document.getElementById("methodPay").innerHTML = htmlContentToAppend;
   }
 }
+
+
+function validarFormulario() {
+  
+  var telphone = document.getElementById('telphone').value;
+  var postal = document.getElementById('postal').value;
+  var name = document.getElementById('name').value;
+  var name = document.getElementById('surname').value;
+  var name = document.getElementById('adress').value;
+  var name = document.getElementById('location').value;
+  if(telphone.length == 0) {
+    alert('No has escrito nada');
+    return;
+  }
+  var telphone = document.getElementById('telphone').value;
+  if (telphone.length < 9) {
+    alert('El telefono no es válido');
+    return;
+    
+  }
+  var postal = document.getElementById('postal').value;
+  if (postal.length < 5) {
+    alert('El codigo postal no es válido');
+    return;
+  }
+  var name = document.getElementById('name').value;
+  if (name.length <= 2) {
+    alert('El nombre no es válido');
+    return;
+  }
+  var surname = document.getElementById('surname').value;
+  if (surname.length <= 4) {
+    alert('El apellido no es válido');
+    return;
+  }
+  var adress = document.getElementById('adress').value;
+  if (adress.length <= 3) {
+    alert('La direccion no es válida');
+    return;
+  }
+  var location = document.getElementById('location').value;
+  if (location.length < 3) {
+    alert('La locacion no es válida');
+    return;
+    
+  }
+  alert("compra exitosa")
+}
