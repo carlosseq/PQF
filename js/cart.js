@@ -126,7 +126,8 @@ function calSubtotal(indice,precio){
     
     carrito.articles.splice(posicion, 1);
     
-    mostrarCarrito(articles);
+    
+    mostrarCarrito(carrito);
     
 }
  
