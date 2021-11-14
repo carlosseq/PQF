@@ -4,7 +4,8 @@
 const CART_INFO2_URL ="https://japdevdep.github.io/ecommerce-api/cart/654.json"
 carrito = {};
 let subTotal_Final=0;
-
+articulos= {};
+articles= {};
 document.addEventListener("DOMContentLoaded", function(e){ 
 
     getJSONData(CART_INFO2_URL).then(function(resultObj){
@@ -12,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     { carrito = resultObj.data;
       mostrarCarrito(carrito);
       methodPay();
-      removeProductCart(cart.articles);
+      
     }
 })
 
