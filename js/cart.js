@@ -121,12 +121,12 @@ function calSubtotal(indice,precio){
   }
   
 
-  function limpiarCarrito(articulos, posicion) {
-    localStorage.getItem("articulos");
-    articulos.splice(posicion, 1);
-    localStorage.setItem('articulos', JSON.stringify(articulos));
-    mostrarArticulos(articulos);
-    newBadge();
+  function limpiarCarrito(posicion) {
+    
+    carrito.articles.splice(posicion, 1);
+    
+    mostrarCarrito(articles);
+    
 }
  
 
