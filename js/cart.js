@@ -68,7 +68,11 @@ function mostrarCarrito(lista){
                       <span>USD </span><span class="d-block font-weight-bold" id="subtotal${i}">${0}</span>
                     </div>
                    </div>
-                
+                   <!-- Sacar del carrito -->
+                   <td style="vertical-align: middle;">
+                   <button type="button" onclick="limpiarCarrito(articulos, ${i});" class="btn btn-primary float-right" data-toggle="tooltip" title="Eliminar artículo" style="background: linear-gradient(to right, #ec9ca7, #d33a57); border-color: #d33a57"><i class="fa fa-times" aria-hidden="true"></i>
+                   </button>
+                   </td>
               </div>
             </div>
     `
@@ -116,12 +120,15 @@ function calSubtotal(indice,precio){
       document.getElementById("total-cost").innerText="USD "+ total_Final;
   }
   
+
   function limpiarCarrito(articulos, posicion) {
     localStorage.getItem("articulos");
     articulos.splice(posicion, 1);
     localStorage.setItem('articulos', JSON.stringify(articulos));
-    mostrarCarrito(articulos);
+    mostrarArticulos(articulos);
+    newBadge();
 }
+ 
 
 function methodPay() {
   let method = document.getElementById("method");
